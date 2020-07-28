@@ -1,0 +1,16 @@
+R 1500 1000
+C 33,43,19
+F 120,145,100
+
+NO      ./murmoussu.xpm
+SO ./murmoussu2.xpm
+WE ./murmoussu3.xpm
+EA ./murmoussu4.xpm
+S   ./chococlaude.xpm
+
+111111111
+100000001
+100000001
+100000001
+1200N0001
+111111111
