@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:44:37 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/07/28 02:51:48 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/07/28 16:30:35 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,9 @@ int	keycode2(int keycode, t_img *img)
 		img->angle_start += 0.1;
 	else if (keycode == 65361)
 		img->angle_start -= 0.1;
-	if (img->angle_start > M_PI)
+	while (img->angle_start > M_PI)
 		img->angle_start -= 2 * M_PI;
-	else if (img->angle_start > - M_PI)
+	while (img->angle_start < - M_PI)
 		img->angle_start += 2 * M_PI;
 	ft_view(img, img->res_x, img->draw_sp);
 	mlx_put_image_to_window(img->mlx_ptr, img->mlx_wd, img->img, 0, 0);
