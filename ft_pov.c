@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 00:03:24 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/02 16:53:10 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/03 03:43:51 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ int		ft_view(t_img *img, int res_x, t_draw_sp *dsp)
 	{
 		angle = img->angle_start + ((x / img->res_x) * img->angle_view);
 		alpha = img->angle_view / 2 - (angle - img->angle_start);
-		ft_create_wall(ft_abs(ft_distance(img->map, angle, img)
-			* cos(alpha)), x, img);
+		img->z_buffer[(int)x] = ft_abs(ft_distance(img->map, angle, img));
+		ft_create_wall(img->z_buffer[(int)x] * cos(alpha), x, img);
 		x++;
 	}
 	ft_dist_to_p(img, img->draw_sp, img->pos_x, img->pos_y);

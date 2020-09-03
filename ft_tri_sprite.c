@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/24 18:47:12 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/03 03:30:16 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/03 03:39:54 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ int is_view(t_img *img, t_draw_sp *dsp)
 			{
 				pixx = (double)(p - x_start) / (x_end - x_start) * sp->width;
 
-				while (y < img->res_y && y < y_end)
+				while (y < img->res_y && y < y_end && dist < img->z_buffer[p])
 				{
 					pixy = (double)(y - y_start) /(y_end - y_start) * sp->height;
 					// dprintf(1, "pixx = |%d\n", pixy);
