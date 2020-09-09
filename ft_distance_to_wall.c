@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 16:30:59 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/09 18:58:16 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/10 01:09:05 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ double ft_distance(char **map, double angle, t_img *img)
 	double disttox = 0;
 	double posrayx2 = posx;
 	double posrayy2 = posy;
+	int side;
 	// printf("pos debut :%f|%f\n\n" , posrayx , posrayy);
 	// printf("pos  x = %f\npos  y = %f\n\n", posx, posy);
 	while (hit == 0)
