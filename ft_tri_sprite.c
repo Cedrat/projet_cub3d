@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/24 18:47:12 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/06 20:30:22 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/08 14:16:14 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,6 @@ void ft_quicksort(t_draw_sp *dsp)
 	}
 }
 
-// void nb_print_sp(t_img *img, t_draw_sp *dsp)
-// {
-// 	is_view(img, dsp);
-// }
-
 int is_view(t_img *img, t_draw_sp *dsp)
 {
 	int i = 0;
@@ -71,9 +66,9 @@ int is_view(t_img *img, t_draw_sp *dsp)
 
 		x_start = x* img->res_x + img->res_x/2 - sprite_size/2 * img->res_x;
 		// dprintf(1, "x_start = |%f\n", sprite_size);
-		y_start = img->res_y / 2 - sprite_size/2 * img->res_y;
+		y_start = img->res_y / 2 - sprite_size/2 * img->res_x;
 		// dprintf(1, "y_start = |%d\n", y_start);
-		y_end = img->res_y / 2 + sprite_size/2 * img->res_y;
+		y_end = y_start + sprite_size *  img->res_x;
 		// dprintf(1, "y_end = |%d\n", y_end);
 		x_end = (x_start + sprite_size * img->res_x);
 		// dprintf(1, "x_end = |%d\n", x_end);

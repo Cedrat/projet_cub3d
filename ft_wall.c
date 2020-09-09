@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 17:30:54 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/07/28 00:18:08 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/09 01:22:34 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_wall_n(t_img *img, int h, int x, int *y)
 	int		**map;
 
 	n = img->skin->N;
-	pixx = (int)(img->vect_x * n->width);
+	pixx = floor(img->vect_x * n->width);
 	if (h > img->res_y)
 	{
 		i = (h - img->res_y) / 2;

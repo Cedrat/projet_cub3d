@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 16:30:59 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/06 17:40:37 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/09 18:58:16 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ double ft_distance(char **map, double angle, t_img *img)
 		}
 		else
 		{
-			posrayx += nextwally * tan((M_PI/2 - angle));
+			posrayx += nextwally / tan(angle);
 			posrayy = nextwally + posrayy;
 			mapy += (directiony > 0) ? 1 : -1;
 		}
