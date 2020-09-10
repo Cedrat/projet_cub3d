@@ -6,81 +6,73 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 16:30:59 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/10 01:09:05 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/10 17:14:59 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-
-
-double ft_distance(char **map, double angle, t_img *img)
+double	ft_distance(char **map, double angle, t_img *img, t_dda *dda)
 {
-	double posx = img->pos_x;
-	double posy = img->pos_y;
-	double posrayx = posx;
-	double posrayy = posy;
-	double nextwallx;
-	double nextwally;
-	double directionx = cos(angle);
-	double directiony = sin(angle);
-	int mapx = (int)posx;
-	int mapy = (int)posy;
-	double disttowall = 0;
-	int hit = 0;
-	int c = 0;
-	double disttoy = 0;
-	double disttox = 0;
-	double posrayx2 = posx;
-	double posrayy2 = posy;
-	int side;
-	// printf("pos debut :%f|%f\n\n" , posrayx , posrayy);
-	// printf("pos  x = %f\npos  y = %f\n\n", posx, posy);
-	while (hit == 0)
+	init_t_dda(angle, img, dda);
+	while (map[dda->mapy][dda->mapx] != '1')
 	{
-		if (directionx >= 0)
-			nextwallx = 1 + ((int)posrayx - posrayx);// 	nextwallx = ((int)posrayx - posrayx) + 1;
-		else
-			nextwallx =  (int)posrayx - posrayx;
-		if (directiony >= 0)									 //passage ok
-			nextwally = 1 + ((int)posrayy - posrayy);// 	nextwally = ((int)posrayy - posrayy) + 1;
-		else
-			nextwally = ((int)posrayy) - posrayy;
-		if (nextwally == 0)
-		 	nextwally = -1;
-		if (nextwallx == 0)
-			nextwallx = -1;
-		// printf("nextwall x = %f\nnextwall y = %f\n", nextwallx, nextwally);
-		// printf("direction x = %f\ndirSection y = %f\n", directionx, directiony);
-		disttox = ft_abs(nextwallx) / cos(angle);
-		disttoy = ft_abs(nextwally) / sin(angle);
-		// printf("disttox x = %f\ndisttoy y = %f\n", disttox, disttoy);
-		if ((ft_abs(disttox) < ft_abs(disttoy)) || (disttoy == 0))
+		dda->nextwallx = ft_next_intersect(dda->dir_x, dda->mapx, dda->posrayx);
+		dda->nextwally = ft_next_intersect(dda->dir_y, dda->mapy, dda->posrayy);
+		dda->disttox = ft_abs(dda->nextwallx / dda->dir_x);
+		dda->disttoy = ft_abs(dda->nextwally / dda->dir_y);
+		if (dda->disttox < dda->disttoy || (dda->disttoy == 0))
 		{
-			posrayy += nextwallx * tan(angle);
-			posrayx = posrayx + nextwallx;
-			mapx += (directionx > 0) ? 1 : -1;
+			dda->posrayy += dda->nextwallx * dda->tan_angle;
+			dda->posrayx += dda->nextwallx;
+			dda->mapx += (dda->dir_x > 0) ? 1 : -1;
 		}
 		else
 		{
-			posrayx += nextwally / tan(angle);
-			posrayy = nextwally + posrayy;
-			mapy += (directiony > 0) ? 1 : -1;
+			dda->posrayx += dda->nextwally / dda->tan_angle;
+			dda->posrayy += dda->nextwally;
+			dda->mapy += (dda->dir_y > 0) ? 1 : -1;
 		}
-		// printf("pos rayon x = %f\npos rayon y = %f\n\n", posrayx, posrayy);
-		if (map[mapy][mapx] == '1')
-			hit = 1;
 	}
-	if (directiony < 0 && ft_abs(disttox) > ft_abs(disttoy))
-		img->side = 'N';
-	else if (directiony > 0 && ft_abs(disttox) > ft_abs(disttoy))
-		img->side = 'S';
-	else if (directionx > 0)
-		img->side = 'E';
+	img->side = wall_side(dda->dir_x, dda->dir_y, dda->disttox, dda->disttoy);
+	img->vect_x = ft_floatypart(dda->posrayx);
+	img->vect_y = ft_floatypart(dda->posrayy);
+	return (hypot((dda->posrayx - img->pos_x), (dda->posrayy - img->pos_y)));
+}
+
+void	init_t_dda(double angle, t_img *img, t_dda *dda)
+{
+	dda->dir_x = cos(angle);
+	dda->dir_y = sin(angle);
+	dda->tan_angle = tan(angle);
+	dda->posrayx = img->pos_x;
+	dda->posrayy = img->pos_y;
+	dda->mapx = (int)(dda->posrayx);
+	dda->mapy = (int)(dda->posrayy);
+}
+
+char	wall_side(double dir_x, double dir_y, double dist_to_x,
+		double dist_to_y)
+{
+	if (dir_y < 0 && ft_abs(dist_to_x) > ft_abs(dist_to_y))
+		return ('N');
+	else if (dir_y > 0 && ft_abs(dist_to_x) > ft_abs(dist_to_y))
+		return ('S');
+	else if (dir_x > 0)
+		return ('E');
 	else
-		img->side = 'W';
-	img->vect_x = ft_floatypart(posrayx);
-	img->vect_y = ft_floatypart(posrayy);
-	disttowall = hypot((posrayx - posx),(posrayy - posy));
-	return (disttowall);
+		return ('W');
+}
+
+double	ft_next_intersect(double direction, int map, double player_pos)
+{
+	double nextwall;
+
+	if (direction >= 0)
+		nextwall = 1 + (map - player_pos);
+	else
+		nextwall = map - player_pos;
+	if (nextwall == 0)
+		nextwall = -1;
+	return (nextwall);
 }

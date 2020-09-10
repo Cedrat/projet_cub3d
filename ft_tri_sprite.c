@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/24 18:47:12 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/08 14:16:14 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/10 14:59:03 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,14 +65,9 @@ int is_view(t_img *img, t_draw_sp *dsp)
 		x = tan(angle_sp)/(img->angle_view);
 
 		x_start = x* img->res_x + img->res_x/2 - sprite_size/2 * img->res_x;
-		// dprintf(1, "x_start = |%f\n", sprite_size);
 		y_start = img->res_y / 2 - sprite_size/2 * img->res_x;
-		// dprintf(1, "y_start = |%d\n", y_start);
 		y_end = y_start + sprite_size *  img->res_x;
-		// dprintf(1, "y_end = |%d\n", y_end);
 		x_end = (x_start + sprite_size * img->res_x);
-		// dprintf(1, "x_end = |%d\n", x_end);
-			// dprintf(1, "x_end = |%d\n", x_end);
 
 		int old_start_x;
 		int p;
@@ -85,12 +80,10 @@ int is_view(t_img *img, t_draw_sp *dsp)
 		if (y_start < 0)
 			y_start = 0;
 		y = y_start;
-		// if (x_end < x_start)
-		// 	p = img->res_x;
+
 			while (p < img->res_x)
 			{
 				pixx = (double)(p - old_start_x) /(x_end - old_start_x) * sp->width;
-
 				while (y < img->res_y && y < y_end)
 				{
 					pixy = (double)(y - old_start_y) /(y_end - old_start_y) * sp->height;
@@ -103,12 +96,4 @@ int is_view(t_img *img, t_draw_sp *dsp)
 			}
 		i++;
 	}
-	// dprintf(1, "x_start = |%d\n", x_start);
-	// dprintf(1, "y_start = |%d\n", y_start);
-	// dprintf(1, "x_end = |%d\n", x_end);
-	// dprintf(1, "y_end = |%d\n", y_end);
 }
-
-
-	// dprintf(1, "x_end = |%d\n", y_end);
-	// dprintf(1, "y_pos = |%f\n", img->pos_y);

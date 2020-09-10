@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/20 01:29:46 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/09 16:54:34 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/10 17:08:34 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,21 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+
+typedef struct s_dda
+{
+	double	dir_x;
+	double	dir_y;
+	double	tan_angle;
+	int 		mapx;
+	int 		mapy;
+	double	disttoy;
+	double	disttox;
+	double posrayx;
+	double posrayy;
+	double nextwallx;
+	double nextwally;
+} 		t_dda;
 
 typedef struct s_wall
 {
@@ -93,13 +108,15 @@ typedef struct	 s_img
 	t_textures *skin;
 	char 	side;
 	t_draw_sp *draw_sp;
+	t_dda *dda;
 	double 	*z_buffer;
 }				t_img;
 
+void init_t_dda(double angle, t_img *img, t_dda *dda);
 void nb_print_sp(t_img *img, t_draw_sp *dsp);
 int is_view(t_img *img, t_draw_sp *dsp);
 void nb_view_sprite(t_img *img, t_draw_sp *dsp);
-double ft_distance(char **map, double angle, t_img *img);
+double ft_distance(char **map, double angle, t_img *img, t_dda *dda);
 void draw_sprite(t_img *img, t_draw_sp *dsp);
 int ft_put_sp_xy(t_img *param, t_draw_sp *dsp);
 int ft_count_sp(t_img *param);
@@ -160,5 +177,7 @@ int sidedist_direction(double *sideDist, double raydir, double pos, int map);
 void init_vect_pos(t_img *param);
 void ft_dist_to_p(t_img *img, t_draw_sp * dsp, double pos_x, double pos_y);
 void ft_quicksort(t_draw_sp *dsp);
+char wall_side(double dir_x, double dir_y, double dist_to_x, double dist_to_y);
+double ft_next_intersect(double direction, int map, double player_pos);
 
 #endif
