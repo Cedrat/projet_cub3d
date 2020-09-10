@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/24 18:47:12 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/10 14:59:03 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/10 22:06:31 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int is_view(t_img *img, t_draw_sp *dsp)
 {
 	int i = 0;
 	double angle_sp;
-	double sprite_size;
+	int sprite_size;
 	double x;
 	int x_start;
 	int x_end;
@@ -54,6 +54,7 @@ int is_view(t_img *img, t_draw_sp *dsp)
 	int pixx;
 	int pixy;
 	int old_start_y;
+	double ratio = 0.5/tan(img->angle_view/2);
 	sp = img->skin->Sp;
 	map = sp->color_tab;
 	while (i < dsp->nb_sprite)
@@ -61,13 +62,18 @@ int is_view(t_img *img, t_draw_sp *dsp)
 
 		angle_sp = atan2((dsp->sp_y[i] - img->pos_y), (dsp->sp_x[i] - img->pos_x)) - (img->angle_start + img->angle_view/2); // not good enough
 		dist = hypot((dsp->sp_y[i] - img->pos_y), (dsp->sp_x[i] - img->pos_x));
-		sprite_size = 1/(dist * cos(angle_sp));
-		x = tan(angle_sp)/(img->angle_view);
-
-		x_start = x* img->res_x + img->res_x/2 - sprite_size/2 * img->res_x;
-		y_start = img->res_y / 2 - sprite_size/2 * img->res_x;
-		y_end = y_start + sprite_size *  img->res_x;
-		x_end = (x_start + sprite_size * img->res_x);
+		sprite_size = img->res_x/(dist*cos(angle_sp));
+		int x_mid = ratio * tan(angle_sp) * img->res_x;
+		x_start = x_mid  - sprite_size/2 + img->res_x/2;
+		dprintf(1, "x_start = |%f\n", angle_sp);
+		// dprintf(1, "x_start = |%f\n",  angle_sp/(img->angle_view - angle_sp));
+		y_start = img->res_y / 2 - sprite_size/2;
+		// dprintf(1, "y_start = |%d\n", y_start);
+		y_end = y_start + sprite_size;
+		// dprintf(1, "y_end = |%d\n", y_end);
+		x_end = x_start + sprite_size;
+		// dprintf(1, "x_end = |%d\n", x_end);
+			// dprintf(1, "x_end = |%d\n", x_end);
 
 		int old_start_x;
 		int p;
@@ -80,10 +86,12 @@ int is_view(t_img *img, t_draw_sp *dsp)
 		if (y_start < 0)
 			y_start = 0;
 		y = y_start;
-
+		// if (x_end < x_start)
+		// 	p = img->res_x;
 			while (p < img->res_x)
 			{
 				pixx = (double)(p - old_start_x) /(x_end - old_start_x) * sp->width;
+
 				while (y < img->res_y && y < y_end)
 				{
 					pixy = (double)(y - old_start_y) /(y_end - old_start_y) * sp->height;
@@ -96,4 +104,8 @@ int is_view(t_img *img, t_draw_sp *dsp)
 			}
 		i++;
 	}
+	// dprintf(1, "x_start = |%d\n", x_start);
+	// dprintf(1, "y_start = |%d\n", y_start);
+	// dprintf(1, "x_end = |%d\n", x_end);
+	// dprintf(1, "y_end = |%d\n", y_end);
 }

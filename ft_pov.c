@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 00:03:24 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/10 16:03:35 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/10 19:43:08 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ int		ft_view(t_img *img, int res_x, t_draw_sp *dsp)
 	x = 0;
 	while (x < img->res_x)
 	{
-		angle_x = 2*(img->angle_view/2 - atan((0.5 - (double)x/img->res_x)/ratio)) - angle_prec;
+		angle_x = 2*(img->angle_view/2 - atan((0.5 -
+			(double)x/img->res_x)/ratio)) - angle_prec;
 		angle_prec = angle_x;
 		angle = img->angle_start + angle_x;
 		img->z_buffer[x] = ft_distance(img->map, angle, img, img->dda);
@@ -43,7 +44,7 @@ void	ft_create_wall(double dist_wall, int pixel, t_img *img)
 	int i;
 
 	i = 0;
-	h = (int)(img->res_x/(dist_wall));
+	h = (img->res_x/(dist_wall));
 	y = 0;
 	while (y < (img->res_y/ 2 - h / 2) && y < img->res_y)
 	{
