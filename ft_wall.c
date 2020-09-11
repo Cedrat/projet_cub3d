@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 17:30:54 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/09 01:22:34 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/10 23:41:55 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	ft_wall_s(t_img *img, int h, int x, int *y)
 	else
 		i = 0;
 	step = 0;
-	while (i < h && *y < img->res_y && x < img->res_x)
+	while (i < h && *y < img->res_y)
 	{
 		ft_mlx_pixel_put(img, x, *y, map[pixx][(int)step]);
 		step = i * s->height / h;

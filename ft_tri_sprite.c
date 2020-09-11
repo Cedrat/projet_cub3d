@@ -6,16 +6,16 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/24 18:47:12 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/10 22:06:31 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/11 03:13:25 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void ft_quicksort(t_draw_sp *dsp)
+void	ft_quicksort(t_draw_sp *dsp)
 {
-	int i;
-	double old_value;
+	int		i;
+	double	old_value;
 
 	i = 0;
 	while (i < dsp->nb_sprite - 1)
@@ -38,74 +38,57 @@ void ft_quicksort(t_draw_sp *dsp)
 	}
 }
 
-int is_view(t_img *img, t_draw_sp *dsp)
+int		is_view(t_img *img, t_draw_sp *dsp)
 {
-	int i = 0;
-	double angle_sp;
-	int sprite_size;
-	double x;
-	int x_start;
-	int x_end;
-	int y_start;
-	int y_end;
-	int		**map;
-	double dist;
-	t_wall	*sp;
-	int pixx;
-	int pixy;
-	int old_start_y;
-	double ratio = 0.5/tan(img->angle_view/2);
-	sp = img->skin->Sp;
-	map = sp->color_tab;
+	size_t	i;
+
+	i = 0;
 	while (i < dsp->nb_sprite)
 	{
-
-		angle_sp = atan2((dsp->sp_y[i] - img->pos_y), (dsp->sp_x[i] - img->pos_x)) - (img->angle_start + img->angle_view/2); // not good enough
-		dist = hypot((dsp->sp_y[i] - img->pos_y), (dsp->sp_x[i] - img->pos_x));
-		sprite_size = img->res_x/(dist*cos(angle_sp));
-		int x_mid = ratio * tan(angle_sp) * img->res_x;
-		x_start = x_mid  - sprite_size/2 + img->res_x/2;
-		dprintf(1, "x_start = |%f\n", angle_sp);
-		// dprintf(1, "x_start = |%f\n",  angle_sp/(img->angle_view - angle_sp));
-		y_start = img->res_y / 2 - sprite_size/2;
-		// dprintf(1, "y_start = |%d\n", y_start);
-		y_end = y_start + sprite_size;
-		// dprintf(1, "y_end = |%d\n", y_end);
-		x_end = x_start + sprite_size;
-		// dprintf(1, "x_end = |%d\n", x_end);
-			// dprintf(1, "x_end = |%d\n", x_end);
-
-		int old_start_x;
-		int p;
-		old_start_x = x_start;
-		if (x_start < 0)
-			x_start = 0;
-		p = x_start;
-		int y;
-		old_start_y = y_start;
-		if (y_start < 0)
-			y_start = 0;
-		y = y_start;
-		// if (x_end < x_start)
-		// 	p = img->res_x;
-			while (p < img->res_x)
-			{
-				pixx = (double)(p - old_start_x) /(x_end - old_start_x) * sp->width;
-
-				while (y < img->res_y && y < y_end)
-				{
-					pixy = (double)(y - old_start_y) /(y_end - old_start_y) * sp->height;
-					if (pixy > 0 && pixy < sp->height && pixx > 0 && pixx < sp->width && map[pixx][pixy] > 0  && p > 0  && dist < img->z_buffer[p])
-						ft_mlx_pixel_put(img, p, y, map[pixx][pixy]);
-					y++;
-				}
-				y = y_start;
-				p++;
-			}
+		dsp->angle_sp = atan2((dsp->sp_y[i] - img->pos_y),
+		(dsp->sp_x[i] - img->pos_x)) - (img->angle_start + img->angle_view / 2);
+		dsp->sp_h = img->res_x / (dsp->dist_to_p[i] * cos(dsp->angle_sp));
+		dsp->x_start = img->ratio * tan(dsp->angle_sp) * img->res_x
+								- dsp->sp_h / 2 + img->res_x / 2;
+		dsp->y_start = img->res_y / 2 - dsp->sp_h / 2;
+		dsp->y_end = dsp->y_start + dsp->sp_h;
+		dsp->x_end = dsp->x_start + dsp->sp_h;
+		dsp->old_start_x = dsp->x_start;
+		if (dsp->x_start < 0)
+			dsp->x_start = 0;
+		dsp->old_start_y = dsp->y_start;
+		if (dsp->y_start < 0)
+			dsp->y_start = 0;
+		ft_draw_sp(img, dsp->x_start, dsp->y_start, i);
 		i++;
 	}
-	// dprintf(1, "x_start = |%d\n", x_start);
-	// dprintf(1, "y_start = |%d\n", y_start);
-	// dprintf(1, "x_end = |%d\n", x_end);
-	// dprintf(1, "y_end = |%d\n", y_end);
+}
+
+void	ft_draw_sp(t_img *img, int x, int y, size_t i)
+{
+	int		pixx;
+	int		pixy;
+	double	optipx;
+	double	optipy;
+
+	optipx = (img->draw_sp->x_end - img->draw_sp->old_start_x);
+	optipy = (img->draw_sp->y_end - img->draw_sp->old_start_y);
+	while (x < img->res_x)
+	{
+		pixx = (x - img->draw_sp->old_start_x) / optipx * img->skin->Sp->width;
+		while (y < img->res_y && y < img->draw_sp->y_end)
+		{
+			pixy = (y - img->draw_sp->old_start_y)
+						/ optipy * img->skin->Sp->height;
+			if (pixy > 0 && pixy < img->skin->Sp->height && pixx > 0 && pixx <
+				img->skin->Sp->width
+				&& img->draw_sp->dist_to_p[i] < img->z_buffer[x]
+				&& img->skin->Sp->color_tab[pixx][pixy] > 0)
+				ft_mlx_pixel_put(img, x, y,
+					img->skin->Sp->color_tab[pixx][pixy]);
+			y++;
+		}
+		y = img->draw_sp->y_start;
+		x++;
+	}
 }

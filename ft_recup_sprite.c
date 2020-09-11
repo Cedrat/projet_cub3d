@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/24 16:10:31 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/10 20:38:58 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/11 01:45:27 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,13 +79,9 @@ void ft_dist_to_p(t_img *img, t_draw_sp* dsp, double pos_x, double pos_y)
 	sp_x = dsp->sp_x;
 	sp_y = dsp->sp_y;
 	i = 0;
-
 	while (i < dsp->nb_sprite)
 	{
-		// printf("%f = %f\n", sp_x[i] , sp_y[i]);
-		dsp->dist_to_p[i] = (pos_x - sp_x[i]) * (pos_x - sp_x[i]) +
-		(pos_y - sp_y[i]) * (pos_y - sp_y[i]);
-		// printf("%d = %f\n", i ,dsp->dist_to_p[i]);
+		dsp->dist_to_p[i] = hypot((pos_x - sp_x[i]),(pos_y - sp_y[i]));
 		i++;
 	}
 	ft_quicksort(dsp);

@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 00:03:24 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/10 19:43:08 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/11 01:41:07 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,15 @@ int		ft_view(t_img *img, int res_x, t_draw_sp *dsp)
 	double angle;
 	size_t x;
 	double angle_x;
-	double ratio;
 	double angle_prec;
 
-	ratio = 0.5/tan(img->angle_view/2);
+	img->ratio = 0.5/tan(img->angle_view/2);
 	angle_prec = 0;
 	x = 0;
 	while (x < img->res_x)
 	{
 		angle_x = 2*(img->angle_view/2 - atan((0.5 -
-			(double)x/img->res_x)/ratio)) - angle_prec;
+			(double)x/img->res_x)/img->ratio)) - angle_prec;
 		angle_prec = angle_x;
 		angle = img->angle_start + angle_x;
 		img->z_buffer[x] = ft_distance(img->map, angle, img, img->dda);

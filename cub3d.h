@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/20 01:29:46 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/10 17:08:34 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/11 02:33:54 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,13 +68,16 @@ typedef struct	 s_textures
 
 typedef struct	s_draw_sprites
 {
-	double	inv_det;
-	double	transform_x;
-	double	transform_y;
 	double	perp_dist;
 	int 	nb_sprite;
-	int		sp_screenx;
 	int		sp_h;
+	int x_start;
+	int x_end;
+	int y_start;
+	int y_end;
+	int old_start_y;
+	int old_start_x;
+	double angle_sp;
 	double *sp_x;
 	double *sp_y;
 	double *dist_to_p;
@@ -82,6 +85,7 @@ typedef struct	s_draw_sprites
 
 typedef struct	 s_img
 {
+	double ratio;
 	double angle_start;
 	double angle_view;
 	double pos_x;
@@ -112,6 +116,7 @@ typedef struct	 s_img
 	double 	*z_buffer;
 }				t_img;
 
+void ft_draw_sp(t_img* img, int x, int y, size_t i);
 void init_t_dda(double angle, t_img *img, t_dda *dda);
 void nb_print_sp(t_img *img, t_draw_sp *dsp);
 int is_view(t_img *img, t_draw_sp *dsp);
