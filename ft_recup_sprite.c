@@ -6,13 +6,13 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/24 16:10:31 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/11 01:45:27 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/11 22:40:47 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	ft_count_sp(t_img *param)
+int		ft_count_sp(t_img *param)
 {
 	size_t	h;
 	size_t	w;
@@ -34,24 +34,17 @@ int	ft_count_sp(t_img *param)
 	return (ft_put_sp_xy(param, param->draw_sp));
 }
 
-int ft_put_sp_xy(t_img *param, t_draw_sp *dsp)
+int		ft_put_sp_xy(t_img *param, t_draw_sp *dsp)
 {
 	size_t	h;
 	size_t	w;
-	size_t  i;
+	size_t	i;
 
 	h = 0;
 	w = 0;
 	i = 0;
-	if (dsp->nb_sprite > 0)
-	{
-		if (!(dsp->sp_x = malloc(sizeof(double) * dsp->nb_sprite)))
-			return (ft_err_code(7));
-		if (!(dsp->sp_y = malloc(sizeof(double) * dsp->nb_sprite)))
-			return (ft_err_code(7));
-		if (!(dsp->dist_to_p = malloc(sizeof(double) * dsp->nb_sprite)))
-			return (ft_err_code(7));
-	}
+	if (!ft_init_s_sp(dsp))
+		return (0);
 	while (h < param->map_heigth)
 	{
 		while (w < param->map_width)
@@ -70,19 +63,32 @@ int ft_put_sp_xy(t_img *param, t_draw_sp *dsp)
 	return (1);
 }
 
-void ft_dist_to_p(t_img *img, t_draw_sp* dsp, double pos_x, double pos_y)
+void	ft_dist_to_p(t_img *img, t_draw_sp *dsp, double pos_x, double pos_y)
 {
-	int i;
-	double *sp_x;
-	double *sp_y;
+	int		i;
+	double	*sp_x;
+	double	*sp_y;
 
 	sp_x = dsp->sp_x;
 	sp_y = dsp->sp_y;
 	i = 0;
 	while (i < dsp->nb_sprite)
 	{
-		dsp->dist_to_p[i] = hypot((pos_x - sp_x[i]),(pos_y - sp_y[i]));
+		dsp->dist_to_p[i] = hypot((pos_x - sp_x[i]), (pos_y - sp_y[i]));
 		i++;
 	}
 	ft_quicksort(dsp);
+}
+
+int		ft_init_s_sp(t_draw_sp *dsp)
+{
+	if (dsp->nb_sprite > 0)
+	{
+		if (!(dsp->sp_x = malloc(sizeof(double) * dsp->nb_sprite)))
+			return (ft_err_code(7));
+		if (!(dsp->sp_y = malloc(sizeof(double) * dsp->nb_sprite)))
+			return (ft_err_code(7));
+		if (!(dsp->dist_to_p = malloc(sizeof(double) * dsp->nb_sprite)))
+			return (ft_err_code(7));
+	}
 }

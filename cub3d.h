@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/20 01:29:46 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/11 02:33:54 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/11 23:00:14 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,8 @@ typedef struct	 s_img
 	double 	*z_buffer;
 }				t_img;
 
+void ft_block(t_img *img, double new_pos_x, double new_pos_y);
+int ft_init_s_sp(t_draw_sp *dsp);
 void ft_draw_sp(t_img* img, int x, int y, size_t i);
 void init_t_dda(double angle, t_img *img, t_dda *dda);
 void nb_print_sp(t_img *img, t_draw_sp *dsp);

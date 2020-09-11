@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/16 21:06:12 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/07/28 02:11:37 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/11 22:43:08 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ int main()
 
 		img = ft_init_s_img();
 		img->mlx_ptr = mlx_init();
-		// if (!(ft_parsing("./parsing_test.cub", img)))
-		// 	return (0);
-		ft_parsing("./parsing_test.cub", img);
+		if (!(ft_parsing("./parsing_test.cub", img)))
+			return (0);
+		// ft_parsing("./parsing_test.cub", img);
 		ft_count_sp(img);
 		img->z_buffer = malloc(sizeof(double) * img->res_x);
 		// printf("%f", ft_distance_to_wall(img, 0.00));
