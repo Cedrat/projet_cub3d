@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/16 21:14:30 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/07/20 17:47:44 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/12 16:23:28 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,11 @@ int	ft_err_code(int i)
 
 int	ft_err_code_2(int i)
 {
-	if (i == 10 && !(ft_putstr("Error\nbad reso\n")))
+	if (i == 10 && !(ft_putstr("Error\ninvalid reso\n")))
 		return (ft_err_code(-1));
 	else if (i == 11 && !(ft_putstr("Error\nfailed mlxlib\n")))
+		return (ft_err_code(-1));
+	else if (i == 12 && !(ft_putstr("Error\ninvalid file or extension\n")))
 		return (ft_err_code(-1));
 	return (0);
 }

@@ -6,20 +6,22 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/16 21:06:12 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/11 22:43:08 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/12 15:30:41 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int main()
+int main(int argc, char *argv[])
 {
 		t_img *img;
 		char    *relative_path = "./test.xpm";
 
 		img = ft_init_s_img();
 		img->mlx_ptr = mlx_init();
-		if (!(ft_parsing("./parsing_test.cub", img)))
+		if (!(ft_is_cub(argv[1])))
+			return (0);
+		if (!(ft_parsing(argv[1], img)))
 			return (0);
 		// ft_parsing("./parsing_test.cub", img);
 		ft_count_sp(img);
