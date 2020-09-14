@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/20 01:29:46 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/12 16:25:47 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/14 01:50:02 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,7 @@ typedef struct	 s_img
 	double 	*z_buffer;
 }				t_img;
 
+int ft_is_rgb(char *file);
 int ft_is_res(char *line);
 int ft_is_cub(char *file);
 void ft_block(t_img *img, double new_pos_x, double new_pos_y);
@@ -162,7 +163,7 @@ void	ft_putnbr_fd(int n, int fd);
 int ft_err_code(int i);
 int ft_err_code_2(int i);
 int ft_putstr(char *str);
-int	ft_extract_color(char *line, t_img *param);
+int	ft_extract_color(char *line, t_img *param, char fc);
 int ft_create_img(t_img *param, char* temp, char face);
 int ft_create_img2(t_img *param, char* temp, char face);
 int	ft_extract_data(t_img *param, char *line);

@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/18 16:36:45 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/07/20 17:42:30 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/14 01:49:33 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ int	ft_extract_data(t_img *param, char *line)
 		&& (!(ft_extract_reso(&line[i + 1], param))))
 		return (0);
 	else if (line[i] == 'C' && line[i + 1] != '\0' && line[i + 1] != '\n'
-		&& (!(ft_extract_color(&line[i], param))))
+		&& (!(ft_extract_color(&line[i + 1], param, 'C'))))
 		return (0);
 	else if (line[i] == 'F' && line[i + 1] != '\0' && line[i + 1] != '\n'
-		&& ((!ft_extract_color(&line[i], param))))
+		&& ((!ft_extract_color(&line[i + 1], param, 'F'))))
 		return (0);
 	else if (line[i] == 'N' && line[i + 1] == 'O'
 		&& (!(ft_extract_img(param, &line[i + 2], line[i]))))

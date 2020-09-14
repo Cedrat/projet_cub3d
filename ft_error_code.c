@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/16 21:14:30 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/12 16:23:28 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/13 20:20:35 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ int	ft_err_code_2(int i)
 	else if (i == 11 && !(ft_putstr("Error\nfailed mlxlib\n")))
 		return (ft_err_code(-1));
 	else if (i == 12 && !(ft_putstr("Error\ninvalid file or extension\n")))
+		return (ft_err_code(-1));
+	else if (i == 13 && !(ft_putstr("Error\ninvalid rgb\n")))
 		return (ft_err_code(-1));
 	return (0);
 }

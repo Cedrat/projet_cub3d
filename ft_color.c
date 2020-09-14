@@ -6,20 +6,22 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/18 19:22:59 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/07/27 20:12:23 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/14 01:59:43 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	ft_extract_color(char *line, t_img *param)
+int	ft_extract_color(char *line, t_img *param, char fc)
 {
 	size_t	i;
 	int		r;
 	int		g;
 	int		b;
 
-	i = 1;
+	if (!(ft_is_rgb(line)))
+		return (0);
+	i = 0;
 	while (line[i] == ' ')
 		i++;
 	r = ft_atoi(&line[i]);
@@ -33,9 +35,9 @@ int	ft_extract_color(char *line, t_img *param)
 	if (line[i] = ',')
 		i++;
 	b = ft_atoi(&line[i]);
-	if (line[0] == 'C')
+	if (fc == 'C')
 		param->skin->c = ft_create_rgb(r, g, b);
-	else if (line[0] == 'F')
+	else if (fc == 'F')
 		param->skin->f = ft_create_rgb(r, g, b);
 	return (1);
 }
