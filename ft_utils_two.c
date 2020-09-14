@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 00:14:25 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/07 00:47:46 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/14 21:47:37 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,13 @@ double	ft_floatypart(double a)
 		a = -a;
 	a = a - (int)a;
 	return (a);
+}
+
+int ft_strcmp(const char *s1, const char *s2)
+{
+	size_t i;
+
+	while(s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
+		i++;
+	return (s1[i] - s2[i]);
 }

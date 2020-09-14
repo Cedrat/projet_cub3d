@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/18 18:21:28 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/12 16:35:00 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/14 20:17:03 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,13 @@ int	ft_extract_reso(char *line, t_img *param)
 	size_t	i;
 	int		temp_resx;
 	int		temp_resy;
-	void	*mlx_ptr;
 
-	if (!(mlx_ptr = mlx_init()))
-		ft_err_code(ft_err_code(11));
-	ft_is_res(line);
-	mlx_get_screen_size(mlx_ptr, &temp_resx, &temp_resy);
+	if (param->secu->res != 0)
+		return (ft_err_code(14));
+	param->secu->res++;
+	if (!(ft_is_res(line)))
+		return(0);
+	mlx_get_screen_size(param->mlx_ptr, &temp_resx, &temp_resy);
 	i = 0;
 	param->res_y = 0;
 	param->res_x = ft_atoi(line);

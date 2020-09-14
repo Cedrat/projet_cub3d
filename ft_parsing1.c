@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/16 21:07:39 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/12 14:53:23 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/14 21:25:55 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,11 @@ int	ft_parsing(char *pathname, t_img *param)
 	if (!(ft_extract_map(param, map)))
 		return (0);
 	close(fd);
+	if (!(param->secu->floor == 1 && param->secu->ceil == 1
+		&& param->secu->res == 1 && param->secu->tex_e == 1
+		&& param->secu->tex_n == 1 && param->secu->tex_s == 1
+		&& param->secu->tex_w == 1 && param->secu->tex_sp == 1))
+		return ft_err_code(15);
 	return (1);
 }
 
@@ -47,7 +52,7 @@ int	ft_while_parsing(int fd, char *line, char **map, t_img *param)
 			if (!(*map = ft_strjoin_f(*map, line)))
 				return (ft_err_code(7));
 			free(line);
-			ft_while_while_parsing(fd, line, map, &ret);
+			// ft_while_while_parsing(fd, line, map, &ret);
 		}
 		else if (parsing_value == 0)
 			return (0);
@@ -65,6 +70,7 @@ int	ft_while_while_parsing(int fd, char *line, char **map, int *ret)
 			return (ft_err_code(9));
 		if (!(*map = ft_strjoin_f(*map, line)))
 			return (ft_err_code(7));
+		dprintf(1, "%d\n", *ret);
 		free(line);
 	}
 }

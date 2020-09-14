@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:44:37 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/11 23:25:00 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/14 16:47:26 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,11 @@ int		keycode2(int keycode, t_img *img)
 		img->angle_start += 0.05;
 	else if (keycode == 65361)
 		img->angle_start -= 0.05;
+	else if (keycode == 65307)
+	{
+		mlx_destroy_window(img->mlx_ptr, img->mlx_wd);
+		exit(0);
+	}
 	ft_view(img, img->res_x, img->draw_sp);
 	mlx_put_image_to_window(img->mlx_ptr, img->mlx_wd, img->img, 0, 0);
 	return (1);
@@ -50,7 +55,7 @@ int		keycode2(int keycode, t_img *img)
 void	ft_block(t_img *img, double new_pos_x, double new_pos_y)
 {
 	if (img->map[(int)new_pos_y][(int)new_pos_x] != '1'
-	&& img->map[(int)new_pos_y][(int)new_pos_x] != ' ')
+	&& img->map[(int)new_pos_y][(int)new_pos_x] != ' ' && img->map[(int)img->pos_y][(int)new_pos_x] != '1' && img->map[(int)new_pos_y][(int)img->pos_x] != '1')
 	{
 		img->pos_x = new_pos_x;
 		img->pos_y = new_pos_y;

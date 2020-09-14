@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/16 21:14:30 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/13 20:20:35 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/14 21:25:25 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,10 @@ int	ft_err_code_2(int i)
 	else if (i == 12 && !(ft_putstr("Error\ninvalid file or extension\n")))
 		return (ft_err_code(-1));
 	else if (i == 13 && !(ft_putstr("Error\ninvalid rgb\n")))
+		return (ft_err_code(-1));
+	else if (i == 14 && !(ft_putstr("Error\ndata in double\n")))
+		return (ft_err_code(-1));
+	else if (i == 15 && !(ft_putstr("Error\nmissing data\n")))
 		return (ft_err_code(-1));
 	return (0);
 }

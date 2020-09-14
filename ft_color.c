@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/18 19:22:59 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/14 01:59:43 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/14 21:04:23 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,14 @@ int	ft_extract_color(char *line, t_img *param, char fc)
 	int		g;
 	int		b;
 
+	if (fc == 'C' && param->secu->ceil != 0)
+		return (ft_err_code(14));
+	else if (fc == 'F' && param->secu->floor != 0)
+		return (ft_err_code(14));
+	if (fc == 'C')
+		param->secu->ceil++;
+	else if (fc == 'F')
+		param->secu->floor++;
 	if (!(ft_is_rgb(line)))
 		return (0);
 	i = 0;

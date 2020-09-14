@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/20 01:29:46 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/14 01:50:02 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/14 21:48:41 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,21 @@ typedef struct	s_draw_sprites
 	double *dist_to_p;
 }				t_draw_sp;
 
+typedef struct s_security
+{
+	int floor;
+	int ceil;
+	int res;
+	int tex_n;
+	int tex_s;
+	int tex_e;
+	int tex_w;
+	int tex_sp;
+}				t_secu;
+
 typedef struct	 s_img
 {
+	t_secu	*secu;
 	double ratio;
 	double angle_start;
 	double angle_view;
@@ -116,6 +129,9 @@ typedef struct	 s_img
 	double 	*z_buffer;
 }				t_img;
 
+int ft_strcmp(const char *s1, const char *s2);
+void ft_init_secu(t_secu *secu);
+int quit(t_img *img);
 int ft_is_rgb(char *file);
 int ft_is_res(char *line);
 int ft_is_cub(char *file);
