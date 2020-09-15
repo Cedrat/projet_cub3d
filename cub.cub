@@ -1,7 +1,7 @@
-R 1000 1000
+R 999 999
 
-C 33,43,19
-F 100,145,100
+C 255,255,255
+F 8,9,10
 
 NO      ./murmoussu.xpm
 SO ./murmoussu2.xpm

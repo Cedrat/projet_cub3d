@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/20 01:29:46 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/14 21:48:41 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/15 02:05:19 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,6 +129,10 @@ typedef struct	 s_img
 	double 	*z_buffer;
 }				t_img;
 
+int ft_write_img(int fd, t_img *img);
+int ft_write_pic_header(int fd, t_img *img);
+int ft_write_header(int fd, t_img *img);
+int ft_screen(t_img *img);
 int ft_strcmp(const char *s1, const char *s2);
 void ft_init_secu(t_secu *secu);
 int quit(t_img *img);
