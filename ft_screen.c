@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/15 00:00:44 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/15 16:18:37 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/15 16:40:09 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,6 @@ int ft_write_img(int fd, t_img *img)
             write(fd, &b, 1);
             write(fd, &g, 1);
             write(fd, &r, 1);
-            // dprintf(1, "%x|", color);
             y++;
         }
         write(fd, "\0", pitch);

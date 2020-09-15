@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/16 21:06:12 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/15 02:10:35 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/15 16:58:21 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,17 @@ int main(int argc, char *argv[])
 		ft_count_sp(img);
 		img->z_buffer = malloc(sizeof(double) * img->res_x);
 		img->img = mlx_new_image(img->mlx_ptr, img->res_x, img->res_y);
-		img->mlx_wd = mlx_new_window(img->mlx_ptr, img->res_x , img->res_y, "Cub3D");
+		// img->mlx_wd = mlx_new_window(img->mlx_ptr, img->res_x , img->res_y, "Cub3D");
 		img->img_addr = mlx_get_data_addr(img->img, &img->bits_per_pixel, &img->line_length, &img->endian);
 		if (argc == 3 && ft_strcmp("--save", argv[2]) == 0)
 			ft_screen(img);
-		ft_view(img, img->res_x, img->draw_sp);
-		mlx_put_image_to_window(img->mlx_ptr,img->mlx_wd, img->img, 0,0);
-		mlx_hook(img->mlx_wd, 2, 1L<<0, keycode, img);
-		mlx_hook(img->mlx_wd, 33, 1L<<17, quit, img);
-		mlx_loop(img->mlx_ptr);
+		else
+		{
+			img->mlx_wd = mlx_new_window(img->mlx_ptr, img->res_x , img->res_y, "Cub3D");
+			ft_view(img, img->res_x, img->draw_sp);
+			mlx_put_image_to_window(img->mlx_ptr,img->mlx_wd, img->img, 0,0);
+			mlx_hook(img->mlx_wd, 2, 1L<<0, keycode, img);
+			mlx_hook(img->mlx_wd, 33, 1L<<17, quit, img);
+			mlx_loop(img->mlx_ptr);
+		}
 }

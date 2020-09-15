@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 00:14:25 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/14 21:47:37 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/15 16:51:01 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int ft_strcmp(const char *s1, const char *s2)
 {
 	size_t i;
 
+	i = 0;
 	while(s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
 		i++;
 	return (s1[i] - s2[i]);
