@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:44:37 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/15 16:46:02 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/16 02:34:02 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,7 @@ int		keycode2(int keycode, t_img *img)
 		img->angle_start -= 0.05;
 	else if (keycode == 65307)
 	{
-		mlx_destroy_window(img->mlx_ptr, img->mlx_wd);
-		exit(0);
+		quit(img);
 	}
 	ft_view(img, img->res_x, img->draw_sp);
 	mlx_put_image_to_window(img->mlx_ptr, img->mlx_wd, img->img, 0, 0);

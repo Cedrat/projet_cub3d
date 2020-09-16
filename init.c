@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/18 20:05:50 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/15 19:09:03 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/16 00:54:23 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,12 +103,4 @@ void ft_init_secu(t_secu *secu)
 	 secu->tex_e = 0;
 	 secu->tex_w = 0;
 	 secu->tex_sp = 0;
-}
-int quit(t_img *img)
-{
-	free(img->dda);
-	free(img->draw_sp->sp_x);
-	free(img->draw_sp->sp_y);
-	free(img->draw_sp->dist_to_p);
-	exit(0);
 }
