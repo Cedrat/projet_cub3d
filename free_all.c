@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 00:54:14 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/16 20:33:49 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/17 01:00:35 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ void	ft_free_textures(t_img *img, t_wall *skin)
 	}
 	free(skin->color_tab);
 	mlx_destroy_image(img->mlx_ptr, skin->img);
-	free(skin);
 }
 
 void	ft_free_map(t_img *img)
@@ -75,4 +74,23 @@ void	ft_free_tex(t_img *img)
 		ft_free_textures(img, img->skin->W);
 	if (img->secu->tex_sp == 1)
 		ft_free_textures(img, img->skin->Sp);
+	free(img->skin->N);
+	free(img->skin->S);
+	free(img->skin->W);
+	free(img->skin->E);
+	free(img->skin->Sp);
+}
+
+void quick_quit(t_img *img)
+{
+	free(img->dda);
+	free(img->draw_sp);
+	ft_free_tex(img);
+	free(img->skin);
+	if (img->secu->map == 1)
+		ft_free_map(img);
+	free(img->secu);
+	free(img->mlx_ptr);
+	free(img);
+	exit(0);
 }

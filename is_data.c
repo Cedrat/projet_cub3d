@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/12 15:13:22 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/16 20:11:18 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/17 00:08:43 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int		ft_is_rgb(char *file)
 {
 	size_t i;
 	size_t len;
-	size_t i_old;
 
 	len = ft_strlen(file);
 	i = 0;
@@ -41,7 +40,7 @@ int		ft_is_rgb(char *file)
 		i++;
 	if (!(i = ft_is_nb(i, file)))
 		return (0);
-	if (i_old == i || i < (len - 1))
+	if ( i < (len - 1))
 		return (ft_err_code(13));
 	return (1);
 }

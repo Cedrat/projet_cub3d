@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/16 21:06:12 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/16 20:39:34 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/17 00:07:48 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,18 @@ int main(int argc, char *argv[])
 		if (argc == 1)
 			return(0);
 		img = ft_init_s_img();
+		if (argc == 3)
+			img->save = ft_strcmp("--save", argv[2]) == 0 ? 1 : 0;
+		else
+			img->save = 0;
 		img->mlx_ptr = mlx_init();
-		img->save
 		if (!(ft_parsing(argv[1], img)))
-			return (0);
+			quick_quit(img);
 		ft_count_sp(img);
 		img->z_buffer = malloc(sizeof(double) * img->res_x);
 		img->img = mlx_new_image(img->mlx_ptr, img->res_x, img->res_y);
 		img->img_addr = mlx_get_data_addr(img->img, &img->bits_per_pixel, &img->line_length, &img->endian);
-		if (argc == 3 && ft_strcmp("--save", argv[2]) == 0)
+		if (img->save)
 		{
 			ft_screen(img);
 			quit(img);

@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/20 01:29:46 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/16 20:20:57 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/17 00:51:54 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@ typedef struct s_security
 	int tex_e;
 	int tex_w;
 	int tex_sp;
+	int	map;
 }				t_secu;
 
 typedef struct	 s_img
@@ -130,7 +131,7 @@ typedef struct	 s_img
 }				t_img;
 
 void	create_c_f(char side, t_img *param, unsigned int rgb_c);
-int quick_quit(t_img *img);
+void  quick_quit(t_img *img);
 void ft_free_tex(t_img *img);
 void write_pixel(int fd, unsigned int color);
 int check_secu_tex(t_img *param, char face);

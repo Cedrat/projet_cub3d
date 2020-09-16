@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/18 20:05:50 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/16 18:15:19 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/17 01:10:38 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,10 @@ int		ft_extract_img(t_img *param, char *line, char face)
 	if ((path = ft_path_extract(line)) == "fail")
 		return (ft_err_code(7));
 	if (!(ft_create_img(param, path, face)))
+	{
+		free(path);
 		return (0);
+	}
 	if (face == 'N')
 		param->secu->tex_n++;
 	else if (face == 'E')
@@ -95,6 +98,7 @@ void	ft_init_secu(t_secu *secu)
 	secu->tex_e = 0;
 	secu->tex_w = 0;
 	secu->tex_sp = 0;
+	secu->map = 0;
 }
 
 int		check_secu_tex(t_img *param, char face)

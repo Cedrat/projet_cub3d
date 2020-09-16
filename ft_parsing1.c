@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/16 21:07:39 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/16 18:46:49 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/17 00:55:04 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@ int	ft_parsing(char *pathname, t_img *param)
 	if ((fd = open(pathname, O_RDONLY)) == -1)
 		return (ft_err_code(8));
 	if (!(ft_while_parsing(fd, line, &map, param)))
+	{
+		free(map);
 		return (0);
+	}
 	if (!(ft_extract_map(param, map)))
 		return (0);
 	free(map);

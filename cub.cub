@@ -1,11 +1,11 @@
-R 999 999
-C 40, 40 , 40
+R 1000 1000
+C 40, 40 ,40
 F 60,30,30
 
 NO      ./murmoussu.xpm
 SO ./murmoussu2.xpm
 WE ./murmoussu3.xpm
-EA ./murmoussu4.xpm
+EA ./murmoussu4.x
 S   ./OKSp.xpm
 
  11111111111111111

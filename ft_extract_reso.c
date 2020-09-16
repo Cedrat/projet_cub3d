@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/18 18:21:28 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/16 18:50:21 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/17 00:23:34 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,17 @@ int	ft_extract_reso(char *line, t_img *param)
 	i = 0;
 	param->res_y = 0;
 	param->res_x = ft_atoi(line);
-	while (line[i] == ' ')
-		i++;
-	while ('0' <= line[i] && line[i] <= '9' && line[i])
-		i++;
+	i = ft_is_nb(i, line);
 	param->res_y = ft_atoi(&line[i]);
 	if (param->res_y <= 0 || param->res_x <= 0)
 		return (ft_err_code(10));
-	param->res_y = (temp_resy < param->res_y) ? temp_resy : param->res_y;
-	param->res_x = (temp_resx < param->res_x) ? temp_resx : param->res_x;
-	param->res_y = (param->res_y < 60) ? 60 : param->res_y;
-	param->res_x = (param->res_x < 60) ? 60 : param->res_x;
+	if (param->save == 0)
+	{
+		param->res_y = (temp_resy < param->res_y) ? temp_resy : param->res_y;
+		param->res_x = (temp_resx < param->res_x) ? temp_resx : param->res_x;
+		param->res_y = (param->res_y < 60) ? 60 : param->res_y;
+		param->res_x = (param->res_x < 60) ? 60 : param->res_x;
+	}
 	param->secu->res++;
 	return (1);
 }
