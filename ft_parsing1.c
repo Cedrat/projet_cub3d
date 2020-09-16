@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/16 21:07:39 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/15 17:29:13 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/16 18:46:49 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	ft_parsing(char *pathname, t_img *param)
 		&& param->secu->res == 1 && param->secu->tex_e == 1
 		&& param->secu->tex_n == 1 && param->secu->tex_s == 1
 		&& param->secu->tex_w == 1 && param->secu->tex_sp == 1))
-		return ft_err_code(15);
+		return (ft_err_code(15));
 	return (1);
 }
 

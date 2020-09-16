@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/20 01:29:46 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/16 03:03:48 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/16 20:20:57 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ typedef struct s_dda
 
 typedef struct s_wall
 {
-	void *mlx_ptr;
 	void  *img;
 	void  *img_addr;
 	int width;
@@ -130,9 +129,15 @@ typedef struct	 s_img
 	int		save;
 }				t_img;
 
+void	create_c_f(char side, t_img *param, unsigned int rgb_c);
+int quick_quit(t_img *img);
+void ft_free_tex(t_img *img);
+void write_pixel(int fd, unsigned int color);
+int check_secu_tex(t_img *param, char face);
+size_t ft_is_nb(size_t i, char *file);
 void mlx_del(void *mlx_ptr);
 void ft_free_map(t_img *img);
-void ft_free_textures(t_wall *skin);
+void ft_free_textures(t_img *img, t_wall *skin);
 int ft_write_img(int fd, t_img *img);
 int ft_write_pic_header(int fd, t_img *img);
 int ft_write_header(int fd, t_img *img);

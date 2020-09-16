@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:44:37 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/16 02:34:02 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/16 19:07:00 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,9 @@ int		keycode2(int keycode, t_img *img)
 void	ft_block(t_img *img, double new_pos_x, double new_pos_y)
 {
 	if (img->map[(int)new_pos_y][(int)new_pos_x] != '1'
-	&& img->map[(int)new_pos_y][(int)new_pos_x] != ' ' && img->map[(int)img->pos_y][(int)new_pos_x] != '1' && img->map[(int)new_pos_y][(int)img->pos_x] != '1')
+	&& img->map[(int)new_pos_y][(int)new_pos_x] != ' '
+	&& img->map[(int)img->pos_y][(int)new_pos_x] != '1'
+	&& img->map[(int)new_pos_y][(int)img->pos_x] != '1')
 	{
 		img->pos_x = new_pos_x;
 		img->pos_y = new_pos_y;
