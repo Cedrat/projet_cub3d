@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/15 00:00:44 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/16 18:46:22 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/17 17:44:31 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int		ft_screen(t_img *img)
 {
 	int fd;
 
-	ft_view(img, img->res_x, img->draw_sp);
+	ft_view(img, img->draw_sp);
 	fd = open("./screen.bmp", O_WRONLY | O_CREAT | O_TRUNC | O_APPEND, 0644);
 	if (fd == -1)
 		return (ft_err_code(16));
@@ -24,14 +24,13 @@ int		ft_screen(t_img *img)
 	ft_write_pic_header(fd, img);
 	ft_write_img(fd, img);
 	close(fd);
+	return (1);
 }
 
-int		ft_write_header(int fd, t_img *img)
+void	ft_write_header(int fd, t_img *img)
 {
 	int filesize;
-	int i;
 
-	i = 0;
 	filesize = (img->res_x * img->bits_per_pixel / 8 * img->res_y) + 54;
 	write(fd, "BM", 2);
 	write(fd, &filesize, 4);
@@ -40,7 +39,7 @@ int		ft_write_header(int fd, t_img *img)
 	write(fd, &filesize, 4);
 }
 
-int		ft_write_pic_header(int fd, t_img *img)
+void	ft_write_pic_header(int fd, t_img *img)
 {
 	int img_size;
 	int plan;
@@ -61,7 +60,7 @@ int		ft_write_pic_header(int fd, t_img *img)
 	write(fd, "", 16);
 }
 
-int		ft_write_img(int fd, t_img *img)
+void	ft_write_img(int fd, t_img *img)
 {
 	void			*dst;
 	unsigned int	color;

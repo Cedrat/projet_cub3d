@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 19:37:25 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/07/22 01:44:36 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/17 16:52:53 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int		ft_initial(int *ok, size_t *h, size_t *w)
 	*ok = -1;
 	*h = 0;
 	*w = *w + 1;
+	return (1);
 }
 
 int		ft_verif(char map, int *ok)

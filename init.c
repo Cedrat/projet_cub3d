@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/18 20:05:50 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/17 01:10:38 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/17 16:54:20 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int		ft_extract_img(t_img *param, char *line, char face)
 
 	if (!(check_secu_tex(param, face)))
 		return (0);
-	if ((path = ft_path_extract(line)) == "fail")
+	if ((ft_strcmp(path = ft_path_extract(line), "fail") == 0))
 		return (ft_err_code(7));
 	if (!(ft_create_img(param, path, face)))
 	{

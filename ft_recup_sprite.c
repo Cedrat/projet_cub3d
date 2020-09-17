@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/24 16:10:31 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/11 22:40:47 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/17 17:02:22 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int		ft_put_sp_xy(t_img *param, t_draw_sp *dsp)
 	return (1);
 }
 
-void	ft_dist_to_p(t_img *img, t_draw_sp *dsp, double pos_x, double pos_y)
+void	ft_dist_to_p(t_draw_sp *dsp, double pos_x, double pos_y)
 {
 	int		i;
 	double	*sp_x;
@@ -91,4 +91,5 @@ int		ft_init_s_sp(t_draw_sp *dsp)
 		if (!(dsp->dist_to_p = malloc(sizeof(double) * dsp->nb_sprite)))
 			return (ft_err_code(7));
 	}
+	return (1);
 }

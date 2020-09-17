@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/24 18:47:12 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/11 03:13:25 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/17 17:05:19 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	ft_quicksort(t_draw_sp *dsp)
 
 int		is_view(t_img *img, t_draw_sp *dsp)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	while (i < dsp->nb_sprite)
@@ -62,6 +62,7 @@ int		is_view(t_img *img, t_draw_sp *dsp)
 		ft_draw_sp(img, dsp->x_start, dsp->y_start, i);
 		i++;
 	}
+	return (1);
 }
 
 void	ft_draw_sp(t_img *img, int x, int y, size_t i)

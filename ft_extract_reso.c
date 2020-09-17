@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/18 18:21:28 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/17 00:23:34 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/17 17:44:00 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,5 @@ int	ft_is_res(char *line)
 		i++;
 	if (old_i == i || i < (len - 1))
 		return (ft_err_code(10));
+	return (1);
 }

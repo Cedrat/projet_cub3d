@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/18 20:12:51 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/07/20 17:48:35 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/17 17:43:51 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ int	ft_create_img(t_img *param, char *temp, char side)
 
 int	**ft_color_tab(t_wall *face)
 {
-	size_t	x;
-	size_t	y;
-	int		**color_tab;
+	int	x;
+	int	y;
+	int	**color_tab;
 
 	x = 0;
 	y = 0;

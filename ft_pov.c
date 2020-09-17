@@ -6,18 +6,18 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 00:03:24 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/11 22:14:51 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/17 17:45:34 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int		ft_view(t_img *img, int res_x, t_draw_sp *dsp)
+int		ft_view(t_img *img, t_draw_sp *dsp)
 {
-	double angle;
-	size_t x;
-	double angle_x;
-	double angle_prec;
+	double	angle;
+	int		x;
+	double	angle_x;
+	double	angle_prec;
 
 	img->ratio = 0.5 / tan(img->angle_view / 2);
 	angle_prec = 0;
@@ -33,17 +33,16 @@ int		ft_view(t_img *img, int res_x, t_draw_sp *dsp)
 			* cos(img->angle_view / 2 - angle_x), x, img);
 		x++;
 	}
-	ft_dist_to_p(img, img->draw_sp, img->pos_x, img->pos_y);
+	ft_dist_to_p(img->draw_sp, img->pos_x, img->pos_y);
 	is_view(img, dsp);
+	return (1);
 }
 
 void	ft_create_wall(double dist_wall, int pixel, t_img *img)
 {
 	int h;
 	int y;
-	int i;
 
-	i = 0;
 	h = (img->res_x / (dist_wall));
 	y = 0;
 	while (y < (img->res_y / 2 - h / 2) && y < img->res_y)

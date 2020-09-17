@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/16 21:07:39 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/17 00:55:04 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/17 17:44:15 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int	ft_parsing(char *pathname, t_img *param)
 {
 	int		fd;
-	char	*line;
 	char	*map;
 
 	if (!(map = malloc(sizeof(char))))
@@ -23,7 +22,7 @@ int	ft_parsing(char *pathname, t_img *param)
 	map[0] = '\0';
 	if ((fd = open(pathname, O_RDONLY)) == -1)
 		return (ft_err_code(8));
-	if (!(ft_while_parsing(fd, line, &map, param)))
+	if (!(ft_while_parsing(fd, &map, param)))
 	{
 		free(map);
 		return (0);
@@ -40,10 +39,11 @@ int	ft_parsing(char *pathname, t_img *param)
 	return (1);
 }
 
-int	ft_while_parsing(int fd, char *line, char **map, t_img *param)
+int	ft_while_parsing(int fd, char **map, t_img *param)
 {
-	int ret;
-	int parsing_value;
+	int		ret;
+	int		parsing_value;
+	char	*line;
 
 	ret = 1;
 	while (ret)
@@ -79,4 +79,5 @@ int	ft_while_while_parsing(int fd, char *line, char **map, int *ret)
 		dprintf(1, "%d\n", *ret);
 		free(line);
 	}
+	return (1);
 }

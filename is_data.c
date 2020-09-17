@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/12 15:13:22 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/17 00:08:43 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/17 17:05:42 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,14 @@ int		ft_is_rgb(char *file)
 		i++;
 	if (!(i = ft_is_nb(i, file)))
 		return (0);
-	if ( i < (len - 1))
+	if (i < (len - 1))
 		return (ft_err_code(13));
 	return (1);
 }
 
 size_t	ft_is_nb(size_t i, char *file)
 {
-	int i_old;
+	size_t i_old;
 
 	while (file[i] == ' ' && file[i])
 		i++;

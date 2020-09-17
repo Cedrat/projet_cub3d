@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 00:54:14 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/17 01:00:35 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/17 16:59:45 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int		quit(t_img *img)
 
 void	ft_free_textures(t_img *img, t_wall *skin)
 {
-	size_t i;
+	int i;
 
 	i = 0;
 	while (i < skin->height)
@@ -81,7 +81,7 @@ void	ft_free_tex(t_img *img)
 	free(img->skin->Sp);
 }
 
-void quick_quit(t_img *img)
+void	quick_quit(t_img *img)
 {
 	free(img->dda);
 	free(img->draw_sp);

@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 17:58:13 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/17 00:56:32 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/17 13:56:42 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,12 @@ int		ft_extract_map(t_img *param, char *map)
 	p = 0;
 	while (map[i] != '\0')
 	{
-		if (map[i] == '\n')
+		if (map[i++] == '\n')
 		{
 			heigth++;
 			width = (p > width) ? p : width;
 			p = 0;
 		}
-		i++;
 		p++;
 	}
 	param->secu->map = 1;

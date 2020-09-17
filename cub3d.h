@@ -6,83 +6,83 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/20 01:29:46 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/17 00:51:54 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/17 17:27:54 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
+
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 128
 # endif
 
-#include <mlx.h>
-#include <stdio.h>
-#include <math.h>
-#include <X11/keysymdef.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
+# include <mlx.h>
+# include <stdio.h>
+# include <math.h>
+# include <X11/keysymdef.h>
+# include <stdlib.h>
+# include <unistd.h>
+# include <sys/types.h>
+# include <sys/stat.h>
+# include <fcntl.h>
 
-typedef struct s_dda
+typedef struct	s_dda
 {
+	int		mapx;
+	int		mapy;
+	double	disttoy;
+	double	disttox;
+	double	posrayx;
+	double	posrayy;
+	double	nextwallx;
+	double	nextwally;
 	double	dir_x;
 	double	dir_y;
 	double	tan_angle;
-	int 		mapx;
-	int 		mapy;
-	double	disttoy;
-	double	disttox;
-	double posrayx;
-	double posrayy;
-	double nextwallx;
-	double nextwally;
-} 		t_dda;
+}				t_dda;
 
-typedef struct s_wall
+typedef struct	s_wall
 {
-	void  *img;
-	void  *img_addr;
-	int width;
-	int height;
-	int bpp;
-	int size_line;
-	int endian;
-	int **color_tab;
+	void	*img;
+	void	*img_addr;
+	int		width;
+	int		height;
+	int		bpp;
+	int		size_line;
+	int		endian;
+	int		**color_tab;
 }				t_wall;
 
-typedef struct	 s_textures
+typedef struct	s_textures
 {
-	int f;
-	int c;
-	t_wall *E;
-	t_wall *N;
-	t_wall *W;
-	t_wall *S;
-	t_wall *Sp;
+	int		f;
+	int		c;
+	t_wall	*E;
+	t_wall	*N;
+	t_wall	*W;
+	t_wall	*S;
+	t_wall	*Sp;
 }				t_textures;
-
 
 typedef struct	s_draw_sprites
 {
-	double	perp_dist;
-	int 	nb_sprite;
+	int		nb_sprite;
 	int		sp_h;
-	int x_start;
-	int x_end;
-	int y_start;
-	int y_end;
-	int old_start_y;
-	int old_start_x;
-	double angle_sp;
-	double *sp_x;
-	double *sp_y;
-	double *dist_to_p;
+	int		x_start;
+	int		x_end;
+	int		y_start;
+	int		y_end;
+	int		old_start_y;
+	int		old_start_x;
+	double	perp_dist;
+	double	angle_sp;
+	double	*sp_x;
+	double	*sp_y;
+	double	*dist_to_p;
 }				t_draw_sp;
 
-typedef struct s_security
+typedef struct	s_security
 {
 	int floor;
 	int ceil;
@@ -97,39 +97,40 @@ typedef struct s_security
 
 typedef struct	 s_img
 {
-	t_secu	*secu;
-	double ratio;
-	double angle_start;
-	double angle_view;
-	double pos_x;
-	double pos_y;
-	double vect_x;
-	double vect_y;
-	double perpdist;
-	int 	map_x;
-	int		map_y;
-	double raydir_x;
-	double raydir_y;
-	void 	*mlx_ptr;
-	void 	*mlx_wd;
-	void 	*img;
-	void 	*img_addr;
-	int 	res_x;
-	int 	res_y;
-	int   	bits_per_pixel;
-    int  	line_length;
-    int  	endian;
-	char 	**map;
-	size_t  map_width;
-	size_t  map_heigth;
-	t_textures *skin;
-	char 	side;
-	t_draw_sp *draw_sp;
-	t_dda *dda;
-	double 	*z_buffer;
-	int		save;
+	char		side;
+	int			map_x;
+	int			map_y;
+	int			res_x;
+	int			res_y;
+	int			bits_per_pixel;
+	int			line_length;
+	int			endian;
+	int			save;
+	void		*mlx_ptr;
+	void		*mlx_wd;
+	void		*img;
+	void		*img_addr;
+	char		**map;
+	double		ratio;
+	double		angle_start;
+	double		angle_view;
+	double		pos_x;
+	double		pos_y;
+	double		vect_x;
+	double		vect_y;
+	double		perpdist;
+	double		raydir_x;
+	double		raydir_y;
+	double		*z_buffer;
+	size_t		map_width;
+	size_t 		map_heigth;
+	t_secu		*secu;
+	t_textures	*skin;
+	t_draw_sp	*draw_sp;
+	t_dda		*dda;
 }				t_img;
 
+void	loop_ig(t_img *img);
 void	create_c_f(char side, t_img *param, unsigned int rgb_c);
 void  quick_quit(t_img *img);
 void ft_free_tex(t_img *img);
@@ -139,9 +140,9 @@ size_t ft_is_nb(size_t i, char *file);
 void mlx_del(void *mlx_ptr);
 void ft_free_map(t_img *img);
 void ft_free_textures(t_img *img, t_wall *skin);
-int ft_write_img(int fd, t_img *img);
-int ft_write_pic_header(int fd, t_img *img);
-int ft_write_header(int fd, t_img *img);
+void ft_write_img(int fd, t_img *img);
+void ft_write_pic_header(int fd, t_img *img);
+void ft_write_header(int fd, t_img *img);
 int ft_screen(t_img *img);
 int ft_strcmp(const char *s1, const char *s2);
 void ft_init_secu(t_secu *secu);
@@ -164,15 +165,15 @@ void ft_calcul_for_sp(t_draw_sp *dsp, t_img *img);
 int	ft_sp(t_img *img, int h, int x, int *y);
 void	ft_create_sprite(t_draw_sp *dsp, int pixel, t_img *img);
 double ft_floatypart(double a);
-int ft_wall_n(t_img *img, int h, int x, int *y);
-int ft_wall_e(t_img *img, int h, int x, int *y);
-int ft_wall_w(t_img *img, int h, int x, int *y);
-int ft_wall_s(t_img *img, int h, int x, int *y);
+void ft_wall_n(t_img *img, int h, int x, int *y);
+void ft_wall_e(t_img *img, int h, int x, int *y);
+void ft_wall_w(t_img *img, int h, int x, int *y);
+void ft_wall_s(t_img *img, int h, int x, int *y);
 void ft_who_side(t_img *param, int side);
 int	keycode(int keycode, t_img *img);
 int	keycode2(int keycode, t_img *img);
 int		until_next_wall(t_img *param, int step_x, int step_y);
-int		ft_view(t_img *param, int res_x, t_draw_sp *dsp);
+int		ft_view(t_img *param, t_draw_sp *dsp);
 void            ft_mlx_pixel_put(t_img *data, int x, int y, int color);
 void	ft_create_wall(double dist_wall, int pixel, t_img *img);
 double ft_abs(double a);
@@ -200,7 +201,7 @@ int	ft_extract_data(t_img *param, char *line);
 int	ft_extract_data_next(t_img *param, char *line, int i);
 int	ft_extract_reso(char *line, t_img *param);
 int	ft_parsing(char *pathname, t_img *param);
-int	ft_while_parsing(int fd, char *line, char **map, t_img *param);
+int	ft_while_parsing(int fd, char **map, t_img *param);
 int	ft_while_while_parsing(int fd, char *line, char **map, int *ret);
 size_t	ft_strlen(const char *s);
 char	*ft_strjoin_f(char const *s1, char const *s2);
@@ -215,7 +216,7 @@ int ft_create_rgb(int r, int g, int b);
 t_img *ft_init_s_img(void);
 int sidedist_direction(double *sideDist, double raydir, double pos, int map);
 void init_vect_pos(t_img *param);
-void ft_dist_to_p(t_img *img, t_draw_sp * dsp, double pos_x, double pos_y);
+void ft_dist_to_p(t_draw_sp *dsp, double pos_x, double pos_y);
 void ft_quicksort(t_draw_sp *dsp);
 char wall_side(double dir_x, double dir_y, double dist_to_x, double dist_to_y);
 double ft_next_intersect(double direction, int map, double player_pos);

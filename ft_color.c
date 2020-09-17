@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/18 19:22:59 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/16 20:10:11 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/17 16:41:37 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,12 @@ int		ft_extract_color(char *line, t_img *param, char fc)
 	r = ft_atoi(&line[i]);
 	if (!(i = ft_is_nb(i, line)))
 		return (0);
-	if (line[i] = ',')
+	if (line[i] == ',')
 		i++;
 	g = ft_atoi(&line[i]);
 	if (!(i = ft_is_nb(i, line)))
 		return (0);
-	if (line[i] = ',')
+	if (line[i] == ',')
 		i++;
 	b = ft_atoi(&line[i]);
 	create_c_f(fc, param, ft_create_rgb(r, g, b));

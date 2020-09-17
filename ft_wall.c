@@ -6,13 +6,13 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 17:30:54 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/10 23:41:55 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/17 16:51:30 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	ft_wall_n(t_img *img, int h, int x, int *y)
+void	ft_wall_n(t_img *img, int h, int x, int *y)
 {
 	int		i;
 	double	step;
@@ -39,7 +39,7 @@ int	ft_wall_n(t_img *img, int h, int x, int *y)
 	}
 }
 
-int	ft_wall_s(t_img *img, int h, int x, int *y)
+void	ft_wall_s(t_img *img, int h, int x, int *y)
 {
 	int		i;
 	double	step;
@@ -66,7 +66,7 @@ int	ft_wall_s(t_img *img, int h, int x, int *y)
 	}
 }
 
-int	ft_wall_e(t_img *img, int h, int x, int *y)
+void	ft_wall_e(t_img *img, int h, int x, int *y)
 {
 	int		i;
 	double	step;
@@ -93,7 +93,7 @@ int	ft_wall_e(t_img *img, int h, int x, int *y)
 	}
 }
 
-int	ft_wall_w(t_img *img, int h, int x, int *y)
+void	ft_wall_w(t_img *img, int h, int x, int *y)
 {
 	int		i;
 	double	step;
