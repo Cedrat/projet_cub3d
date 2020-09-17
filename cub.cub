@@ -2,18 +2,20 @@ R 1000 1000
 C 40, 40 ,40
 F 60,30,30
 
-NO      ./murmoussu.xpm
-SO ./murmoussu2.xpm
-WE ./murmoussu3.xpm
-EA ./murmoussu4.xpm
-S   ./OKSp.xpm
+NO      ./textures/murmoussu.xpm
+SO ./textures/murmoussu2.xpm
+WE ./textures/murmoussu3.xpm
+EA ./textures/murmoussu4.xpm
+S   ./textures/OKSp.xpm
 
 
- 11111111111111111
+111111111111111111
 100000000000000001
 100001000000000001
-10001220000111111
+100012200001111111
 100000000001111001
 100000N00000000001
+100000000000000001
+100000000000000001
 100000000000000001
 111111111111111111

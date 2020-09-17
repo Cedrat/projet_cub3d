@@ -1,0 +1,15 @@
+R 1000 1000
+C 0, 0,0
+F 0,0,0
+
+NO      ./textures/OKN.xpm
+SO ./textures/OKS.xpm
+WE ./textures/OKW.xpm
+EA ./textures/OKE.xpm
+S   ./textures/OKSp.xpm
+
+11111
+10001
+10N01
+10001
+11111

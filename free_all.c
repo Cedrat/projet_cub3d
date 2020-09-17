@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 00:54:14 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/17 16:59:45 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/17 18:24:41 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,20 +65,20 @@ void	ft_free_map(t_img *img)
 void	ft_free_tex(t_img *img)
 {
 	if (img->secu->tex_e == 1)
-		ft_free_textures(img, img->skin->E);
+		ft_free_textures(img, img->skin->e);
 	if (img->secu->tex_n == 1)
-		ft_free_textures(img, img->skin->N);
+		ft_free_textures(img, img->skin->n);
 	if (img->secu->tex_s == 1)
-		ft_free_textures(img, img->skin->S);
+		ft_free_textures(img, img->skin->s);
 	if (img->secu->tex_w == 1)
-		ft_free_textures(img, img->skin->W);
+		ft_free_textures(img, img->skin->w);
 	if (img->secu->tex_sp == 1)
-		ft_free_textures(img, img->skin->Sp);
-	free(img->skin->N);
-	free(img->skin->S);
-	free(img->skin->W);
-	free(img->skin->E);
-	free(img->skin->Sp);
+		ft_free_textures(img, img->skin->sp);
+	free(img->skin->n);
+	free(img->skin->s);
+	free(img->skin->w);
+	free(img->skin->e);
+	free(img->skin->sp);
 }
 
 void	quick_quit(t_img *img)

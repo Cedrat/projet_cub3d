@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/18 20:05:50 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/17 16:54:20 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/17 18:27:07 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,15 @@ t_img	*ft_init_s_img(void)
 		return (0);
 	if (!(img->dda = malloc(sizeof(t_dda))))
 		return (0);
-	if (!(img->skin->N = malloc(sizeof(t_wall))))
+	if (!(img->skin->n = malloc(sizeof(t_wall))))
 		return (0);
-	if (!(img->skin->E = malloc(sizeof(t_wall))))
+	if (!(img->skin->e = malloc(sizeof(t_wall))))
 		return (0);
-	if (!(img->skin->S = malloc(sizeof(t_wall))))
+	if (!(img->skin->s = malloc(sizeof(t_wall))))
 		return (0);
-	if (!(img->skin->W = malloc(sizeof(t_wall))))
+	if (!(img->skin->w = malloc(sizeof(t_wall))))
 		return (0);
-	if (!(img->skin->Sp = malloc(sizeof(t_wall))))
+	if (!(img->skin->sp = malloc(sizeof(t_wall))))
 		return (0);
 	return (img);
 }

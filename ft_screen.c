@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/15 00:00:44 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/17 17:44:31 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/17 18:38:42 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,11 +69,11 @@ void	ft_write_img(int fd, t_img *img)
 	int				pitch;
 
 	pitch = (img->res_x % 4);
-	x = img->res_x - 1;
+	x = img->res_y - 1;
 	y = 0;
 	while (x >= 0)
 	{
-		while (y < img->res_y)
+		while (y < img->res_x)
 		{
 			dst = img->img_addr + (x * img->line_length + y *
 				(img->bits_per_pixel / 8));

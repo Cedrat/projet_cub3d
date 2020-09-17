@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/18 20:12:51 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/17 17:43:51 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/17 18:25:17 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,15 @@ int	ft_create_img(t_img *param, char *temp, char side)
 	t_wall *face;
 
 	if (side == 'N')
-		face = param->skin->N;
+		face = param->skin->n;
 	else if (side == 'E')
-		face = param->skin->E;
+		face = param->skin->e;
 	else if (side == 'W')
-		face = param->skin->W;
+		face = param->skin->w;
 	else if (side == 'S')
-		face = param->skin->S;
+		face = param->skin->s;
 	else if (side == 'p')
-		face = param->skin->Sp;
+		face = param->skin->sp;
 	else
 		return (0);
 	if ((face->img = mlx_xpm_file_to_image(param->mlx_ptr, temp,

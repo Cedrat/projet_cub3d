@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/24 18:47:12 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/17 17:05:19 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/17 18:26:12 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,17 +76,17 @@ void	ft_draw_sp(t_img *img, int x, int y, size_t i)
 	optipy = (img->draw_sp->y_end - img->draw_sp->old_start_y);
 	while (x < img->res_x)
 	{
-		pixx = (x - img->draw_sp->old_start_x) / optipx * img->skin->Sp->width;
+		pixx = (x - img->draw_sp->old_start_x) / optipx * img->skin->sp->width;
 		while (y < img->res_y && y < img->draw_sp->y_end)
 		{
 			pixy = (y - img->draw_sp->old_start_y)
-						/ optipy * img->skin->Sp->height;
-			if (pixy > 0 && pixy < img->skin->Sp->height && pixx > 0 && pixx <
-				img->skin->Sp->width
+						/ optipy * img->skin->sp->height;
+			if (pixy > 0 && pixy < img->skin->sp->height && pixx > 0 && pixx <
+				img->skin->sp->width
 				&& img->draw_sp->dist_to_p[i] < img->z_buffer[x]
-				&& img->skin->Sp->color_tab[pixx][pixy] > 0)
+				&& img->skin->sp->color_tab[pixx][pixy] > 0)
 				ft_mlx_pixel_put(img, x, y,
-					img->skin->Sp->color_tab[pixx][pixy]);
+					img->skin->sp->color_tab[pixx][pixy]);
 			y++;
 		}
 		y = img->draw_sp->y_start;
