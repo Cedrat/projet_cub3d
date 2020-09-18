@@ -41,7 +41,7 @@ SRCS =	./etc/free_all.c				\
 
 OBJS = ${SRCS:.c=.o}
 
-CFLAGS = -lmlx -lXext -lX11 -lm -Wall -Wextra -Werror -g3
+CFLAGS = -lXext -lX11 -lm -Wall -Wextra -Werror
 
 RM = rm -f
 
