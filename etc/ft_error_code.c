@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/16 21:14:30 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/18 12:35:48 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/18 22:39:20 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int	ft_err_code_2(int i)
 		return (ft_err_code(-1));
 	else if (i == 16 && !(ft_putstr("Error\nimpossible to create fd\n")))
 		return (ft_err_code(-1));
-	else if (i == 17 && !(ft_putstr("Error\nmiss map\n")))
+	else if (i == 17 && !(ft_putstr("Error\ninvalid args\n")))
 		return (ft_err_code(-1));
 	return (0);
 }

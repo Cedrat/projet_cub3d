@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/16 21:06:12 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/18 12:45:57 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/18 22:36:36 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ int		main(int argc, char *argv[])
 {
 	t_img *img;
 
-	if (argc == 1)
+	if (argc == 1 || (!ft_is_cub(argv[1])))
 		return (ft_err_code(17));
 	img = ft_init_s_img();
 	if (argc == 3)
-		img->save = ft_strcmp("-save", argv[2]) == 0 ? 1 : 0;
+		img->save = ft_strcmp("--save", argv[2]) == 0 ? 1 : 0;
 	else
 		img->save = 0;
 	img->mlx_ptr = mlx_init();

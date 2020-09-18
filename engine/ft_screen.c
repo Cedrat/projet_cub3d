@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/15 00:00:44 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/18 12:45:47 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/18 22:23:16 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ft_write_header(int fd, t_img *img)
 	filesize = (img->res_x * img->bits_per_pixel / 8 * img->res_y) + 54;
 	write(fd, "BM", 2);
 	write(fd, &filesize, 4);
-	write(fd, "", 4);
+	write(fd, "\0\0\0\0", 4);
 	filesize = 54;
 	write(fd, &filesize, 4);
 }
@@ -57,7 +57,7 @@ void	ft_write_pic_header(int fd, t_img *img)
 	write(fd, &bpp, 2);
 	write(fd, "\0\0\0\0", 4);
 	write(fd, &img_size, 4);
-	write(fd, "", 16);
+	write(fd, "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 16);
 }
 
 void	ft_write_img(int fd, t_img *img)

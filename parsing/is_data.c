@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/12 15:13:22 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/18 12:22:27 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/18 22:38:47 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		ft_is_cub(char *file)
 	len = ft_strlen(file);
 	if (!(len > 4 && file[len - 4] == '.' && file[len - 3] == 'c'
 	&& file[len - 2] == 'u' && file[len - 1] == 'b'))
-		return (ft_err_code(12));
+		return (0);
 	return (1);
 }
 

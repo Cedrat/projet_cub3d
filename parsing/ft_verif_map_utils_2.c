@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 01:43:30 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/18 12:16:02 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/18 23:12:08 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,10 @@ int	ft_pos_and_angle(size_t heigth, size_t width, t_img *param, char cardinal)
 	else if (cardinal == 'W')
 		param->angle_start = M_PI - param->angle_view / 2;
 	return (1);
+}
+
+int	return_free(void *ptr)
+{
+	free(ptr);
+	return (0);
 }

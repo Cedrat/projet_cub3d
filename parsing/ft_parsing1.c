@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/16 21:07:39 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/18 12:25:17 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/18 23:12:15 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,15 @@ int	ft_parsing(char *pathname, t_img *param)
 	int		fd;
 	char	*map;
 
+	if ((fd = open(pathname, O_RDONLY)) == -1)
+		return (ft_err_code(8));
 	if (!(map = malloc(sizeof(char))))
 		return (ft_err_code(7));
 	map[0] = '\0';
-	if ((fd = open(pathname, O_RDONLY)) == -1)
-		return (ft_err_code(8));
 	if (!(ft_while_parsing(fd, &map, param)))
-	{
-		free(map);
-		return (0);
-	}
+		return (return_free(map));
 	if (!(ft_extract_map(param, map)))
-		return (0);
+		return (return_free(map));
 	free(map);
 	close(fd);
 	if (!(param->secu->floor == 1 && param->secu->ceil == 1
