@@ -6,7 +6,7 @@
 #    By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/17 19:13:28 by lnoaille          #+#    #+#              #
-#    Updated: 2020/09/18 14:03:42 by lnoaille         ###   ########.fr        #
+#    Updated: 2020/09/18 14:27:23 by lnoaille         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,18 +48,18 @@ RM = rm -f
 all : 		${NAME}
 
 ${NAME}:	${OBJS}
-			$(MAKE) -C minilibx all
-			gcc -o ${NAME} ${SRCS} minilibx/libmlx_Linux.a  ${CFLAGS}
+			$(MAKE) -C mlx all
+			gcc -o ${NAME} ${SRCS} mlx/libmlx_Linux.a  ${CFLAGS}
 
 clean :
 			${RM} ${OBJS}
-			$(MAKE) -C minilibx clean
+			$(MAKE) -C mlx clean
 
 
 fclean :	clean
 			${RM} ${NAME}
-			$(MAKE) -C minilibx clean
-			${RM} minilibx/libmlx.a
-			${RM} minilibx/libmlx_Linux.a
+			$(MAKE) -C mlx clean
+			${RM} mlx/libmlx.a
+			${RM} mlx/libmlx_Linux.a
 
 re :		fclean all
