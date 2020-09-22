@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 00:03:24 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/22 16:51:43 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/22 18:08:49 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	ft_create_wall(double dist_wall, int pixel, t_img *img)
 	int h;
 	int y;
 
-	h = (img->res_x / (dist_wall));
+	h = ceil(img->res_x / (dist_wall));
 	y = 0;
 	while (y < (img->res_y / 2 - h / 2) && y < img->res_y)
 	{

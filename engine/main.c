@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/16 21:06:12 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/22 17:34:00 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/22 17:50:12 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	loop_ig(t_img *img)
 	mlx_loop(img->mlx_ptr);
 }
 
-int draw(t_img *img)
+int		draw(t_img *img)
 {
 	t_draw_sp *dsp;
 
