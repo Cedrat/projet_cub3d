@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:44:37 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/18 12:45:35 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/22 16:25:16 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,6 @@ int		keycode2(int keycode, t_img *img)
 	{
 		quit(img);
 	}
-	ft_view(img, img->draw_sp);
-	mlx_put_image_to_window(img->mlx_ptr, img->mlx_wd, img->img, 0, 0);
 	return (1);
 }
 

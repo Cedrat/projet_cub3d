@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 00:03:24 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/18 12:45:44 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/22 16:51:43 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int		ft_view(t_img *img, t_draw_sp *dsp)
 	double	angle_x;
 	double	angle_prec;
 
+	(void)dsp;
 	img->ratio = 0.5 / tan(img->angle_view / 2);
 	angle_prec = 0;
 	x = 0;
@@ -33,8 +34,6 @@ int		ft_view(t_img *img, t_draw_sp *dsp)
 			* cos(img->angle_view / 2 - angle_x), x, img);
 		x++;
 	}
-	ft_dist_to_p(img->draw_sp, img->pos_x, img->pos_y);
-	is_view(img, dsp);
 	return (1);
 }
 

@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/20 01:29:46 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/18 23:09:19 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/22 16:24:10 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,6 +130,7 @@ typedef struct	s_img
 	t_dda		*dda;
 }				t_img;
 
+int			draw(t_img *img);
 int				return_free(void *ptr);
 void			loop_ig(t_img *img);
 void			create_c_f(char side, t_img *param, unsigned int rgb_c);

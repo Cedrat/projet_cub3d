@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/16 21:06:12 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/18 22:36:36 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/22 16:51:53 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,19 @@ void	loop_ig(t_img *img)
 	mlx_put_image_to_window(img->mlx_ptr, img->mlx_wd, img->img, 0, 0);
 	mlx_hook(img->mlx_wd, 2, 1L << 0, keycode, img);
 	mlx_hook(img->mlx_wd, 33, 1L << 17, quit, img);
+	mlx_loop_hook(img->mlx_ptr, draw, img);
 	mlx_loop(img->mlx_ptr);
+}
+
+int draw(t_img *img)
+{
+	t_draw_sp *dsp;
+
+	dsp = img->draw_sp;
+
+	ft_view(img, img->draw_sp);
+	ft_dist_to_p(img->draw_sp, img->pos_x, img->pos_y);
+	is_view(img, dsp);
+	mlx_put_image_to_window(img->mlx_ptr, img->mlx_wd, img->img, 0, 0);
+	return (1);
 }
