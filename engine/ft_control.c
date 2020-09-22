@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 15:44:37 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/22 16:25:16 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/22 17:09:27 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,7 @@ int		keycode2(int keycode, t_img *img)
 	else if (keycode == 65361)
 		img->angle_start -= 0.05;
 	else if (keycode == 65307)
-	{
 		quit(img);
-	}
 	return (1);
 }
 
