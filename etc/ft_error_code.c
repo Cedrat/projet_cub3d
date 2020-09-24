@@ -46,7 +46,7 @@ int	ft_err_code(int i)
 		return (ft_err_code(-1));
 	else if (i == 7 && !(ft_putstr("Error\nmalloc failed\n")))
 		return (ft_err_code(-1));
-	else if (i == 8 && !(ft_putstr("Error\nFile not exist or invalid xpm file\n")))
+	else if (i == 8 && !(ft_putstr("Error\nFile not exist or invalid xpm \n")))
 		return (ft_err_code(-1));
 	else if (i == 9 && !(ft_putstr("Error\ngnl failed\n")))
 		return (ft_err_code(-1));
