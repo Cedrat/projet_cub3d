@@ -1,5 +1,5 @@
 R 1000 1000
-C 255, 255, 255
+C 35, 30 , 30
 F 60,30,30
 
 NO      ./textures/murmoussu.xpm

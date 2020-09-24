@@ -18,7 +18,7 @@ int	ft_parsing(char *pathname, t_img *param)
 	char	*map;
 
 	if ((fd = open(pathname, O_RDONLY)) == -1)
-		return (ft_err_code(8));
+		return (ft_err_code(12));
 	if (!(map = malloc(sizeof(char))))
 		return (ft_err_code(7));
 	map[0] = '\0';
