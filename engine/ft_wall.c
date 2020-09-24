@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 17:30:54 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/22 17:06:09 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/24 18:19:27 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_wall_n(t_img *img, int h, int x, int *y)
 	int		**map;
 
 	n = img->skin->n;
-	pixx = floor(img->vect_x * n->width);
+	pixx = (img->vect_x * n->width);
 	if (h > img->res_y)
 	{
 		i = (h - img->res_y) / 2;
@@ -49,7 +49,7 @@ void	ft_wall_s(t_img *img, int h, int x, int *y)
 
 	s = img->skin->s;
 	map = s->color_tab;
-	pixx = (int)(s->width - img->vect_x * s->width);
+	pixx = (s->width - img->vect_x * s->width);
 	if (h > img->res_y)
 	{
 		i = (h - img->res_y) / 2;
@@ -76,7 +76,7 @@ void	ft_wall_e(t_img *img, int h, int x, int *y)
 
 	e = img->skin->e;
 	map = e->color_tab;
-	pixx = (int)(img->vect_y * e->width);
+	pixx = (img->vect_y * e->width);
 	if (h > img->res_y)
 	{
 		i = (h - img->res_y) / 2;
@@ -103,7 +103,7 @@ void	ft_wall_w(t_img *img, int h, int x, int *y)
 
 	w = img->skin->w;
 	map = w->color_tab;
-	pixx = (int)(w->width - img->vect_y * w->width);
+	pixx = w->width - img->vect_y * w->width;
 	if (h > img->res_y)
 	{
 		i = (h - img->res_y) / 2;

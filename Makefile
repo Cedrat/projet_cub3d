@@ -6,7 +6,7 @@
 #    By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/17 19:13:28 by lnoaille          #+#    #+#              #
-#    Updated: 2020/09/18 22:24:18 by lnoaille         ###   ########.fr        #
+#    Updated: 2020/09/24 19:07:32 by lnoaille         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ SRCS =	./etc/free_all.c				\
 
 OBJS = ${SRCS:.c=.o}
 
-CFLAGS = -lXext -lX11 -lm -Wall -Wextra -Werror
+CFLAGS = -lXext -lX11 -lm -Wall -Wextra -Werror -g
 
 RM = rm -f
 

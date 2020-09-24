@@ -6,20 +6,19 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 00:03:24 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/22 18:08:49 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/24 17:54:54 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./../header/cub3d.h"
 
-int		ft_view(t_img *img, t_draw_sp *dsp)
+int		ft_view(t_img *img)
 {
 	double	angle;
 	int		x;
 	double	angle_x;
 	double	angle_prec;
 
-	(void)dsp;
 	img->ratio = 0.5 / tan(img->angle_view / 2);
 	angle_prec = 0;
 	x = 0;
@@ -42,7 +41,7 @@ void	ft_create_wall(double dist_wall, int pixel, t_img *img)
 	int h;
 	int y;
 
-	h = ceil(img->res_x / (dist_wall));
+	h = ((img->res_x + 1) / (dist_wall));
 	y = 0;
 	while (y < (img->res_y / 2 - h / 2) && y < img->res_y)
 	{

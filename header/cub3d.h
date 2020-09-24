@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/20 01:29:46 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/22 17:50:25 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/24 19:29:18 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ typedef struct	s_textures
 typedef struct	s_draw_sprites
 {
 	int		nb_sprite;
-	int		sp_h;
+	double	sp_h;
 	int		x_start;
 	int		x_end;
 	int		y_start;
@@ -175,7 +175,7 @@ void			ft_who_side(t_img *param, int side);
 int				keycode(int keycode, t_img *img);
 int				keycode2(int keycode, t_img *img);
 int				until_next_wall(t_img *param, int step_x, int step_y);
-int				ft_view(t_img *param, t_draw_sp *dsp);
+int				ft_view(t_img *param);
 void			ft_mlx_pixel_put(t_img *data, int x, int y, int color);
 void			ft_create_wall(double dist_wall, int pixel, t_img *img);
 double			ft_abs(double a);
@@ -224,5 +224,6 @@ void			ft_quicksort(t_draw_sp *dsp);
 char			wall_side(double dir_x, double dir_y,
 							double dist_to_x, double dist_to_y);
 double			ft_next_intersect(double direction, int map, double player_pos);
+int				save_option(t_img *img, int temp_resx, int temp_resy);
 
 #endif

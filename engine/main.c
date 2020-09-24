@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/16 21:06:12 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/22 17:50:12 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/24 17:52:54 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int		draw(t_img *img)
 
 	dsp = img->draw_sp;
 	mlx_do_sync(img->mlx_ptr);
-	ft_view(img, img->draw_sp);
+	ft_view(img);
 	ft_dist_to_p(img->draw_sp, img->pos_x, img->pos_y);
 	is_view(img, dsp);
 	mlx_put_image_to_window(img->mlx_ptr, img->mlx_wd, img->img, 0, 0);

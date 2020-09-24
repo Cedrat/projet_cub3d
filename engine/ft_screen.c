@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/15 00:00:44 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/22 17:54:06 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/24 19:10:44 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int		ft_screen(t_img *img)
 {
 	int fd;
 
-	ft_view(img, img->draw_sp);
+	ft_view(img);
 	ft_dist_to_p(img->draw_sp, img->pos_x, img->pos_y);
 	is_view(img, img->draw_sp);
 	fd = open("./screen.bmp", O_WRONLY | O_CREAT | O_TRUNC | O_APPEND, 0644);
