@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/18 18:21:28 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/24 19:33:29 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/24 19:41:55 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,5 @@ int	save_option(t_img *param, int temp_resx, int temp_resy)
 		param->res_y = (param->res_y < 60) ? 60 : param->res_y;
 		param->res_x = (param->res_x < 60) ? 60 : param->res_x;
 	}
-	return (0);
+	return (1);
 }
