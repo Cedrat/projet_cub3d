@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 00:54:14 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/18 12:35:32 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/26 03:26:23 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	ft_free_textures(t_img *img, t_wall *skin)
 	int i;
 
 	i = 0;
-	while (i < skin->height)
+	while (i < skin->width)
 	{
 		free(skin->color_tab[i]);
 		i++;

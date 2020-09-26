@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 19:37:25 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/18 12:16:04 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/26 03:38:44 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,9 @@ int		ft_verif(char map, int *ok)
 		*ok = -1;
 	else if (*ok == 0 && map == ' ')
 		return (ft_err_code(5));
+	else if (map != '1' && map != '0' && map != 'N' && map != 'S' && map != 'W'
+			&& map != 'E' && map != '2' && map != ' ')
+		return (ft_err_code(4));
 	return (1);
 }
 

@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/24 16:10:31 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/09/18 12:27:47 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/09/26 03:36:57 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void	ft_dist_to_p(t_draw_sp *dsp, double pos_x, double pos_y)
 
 int		ft_init_s_sp(t_draw_sp *dsp)
 {
-	if (dsp->nb_sprite > 0)
+	if (dsp->nb_sprite >= 0)
 	{
 		if (!(dsp->sp_x = malloc(sizeof(double) * dsp->nb_sprite)))
 			return (ft_err_code(7));
